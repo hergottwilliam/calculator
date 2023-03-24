@@ -67,8 +67,6 @@ let displayEquation = document.querySelector(".displayequation");
 
 const buttons = document.querySelectorAll(".btn");
 
-// BUG: 3+3=33, SOLUTION: 3 "+" 3 = 6, "3" "+" "3" =33
-// BUG: display equation does not work after = is clicked
 buttons.forEach((button) => {
 
     button.addEventListener("click", function(e){
@@ -89,9 +87,10 @@ buttons.forEach((button) => {
         // if = is clicked: add currentNumber ot equation, then bedmasCalculate(currentCalculation)
         else if (button.className == "btn eql"){
             currentCalculation.push(Number(currentNumber));
+            displayEquation.textContent = currentCalculation.toString();
             currentNumber = bedmasCalculate(currentCalculation);
             displayNumber.textContent = currentNumber;
-            displayEquation.textContent = currentCalculation.toString();
+            
             currentCalculation = [];
         }
         // if AC is clicked, reset everything
@@ -103,3 +102,10 @@ buttons.forEach((button) => {
         }
     });
 });
+
+
+// TODO
+// BUG: display equation does not work after = is clicked
+// clean up display equation so that it has x and divisions symbols and no commas
+// css that bad boy up
+// after AC is clicked, display is blank, maybe create default values?
