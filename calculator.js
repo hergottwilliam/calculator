@@ -1,11 +1,3 @@
-// HTML legend
-// all buttons are class = "btn"
-// all numbers are class = "btn num"
-// all operators are class = "btn opr"
-// = : class = "btn eql"
-// AC: class = "btn clr"
-// all buttons have an id matching the buttons text content, except multiplication (id = *, text content = x)
-
 // basic math functions
 function add(num1, num2){
     return num1 + num2;
