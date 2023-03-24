@@ -11,7 +11,8 @@
     justify-content: center;
 }
 
-.display{
+.displaynumber,
+.displayequation{
     text-align: end;
     padding: 40px;
     font-size: x-large;

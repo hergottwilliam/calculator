@@ -62,29 +62,42 @@ function bedmasCalculate(arr){
     return arr[0];
 }
 
-let display = document.querySelector(".display");
+let displayNumber = document.querySelector(".displaynumber");
+let displayEquation = document.querySelector(".displayequation");
 
 const buttons = document.querySelectorAll(".btn");
 
 buttons.forEach((button) => {
 
     button.addEventListener("click", function(e){
-        // if number is clicked, add button.id to "current number"
-        if (e.target.className == "btn opr"){
-            console.log("opr");
-        }
         // if operator is clicked, end current number and add it to current calculation array, then add button.id of operator to calculation array
-        else if (e.target.className == "btn num"){
-            console.log("num");
+        if (button.className == "btn opr"){
+            currentCalculation.push(currentNumber);
+            currentCalculation.push(button.id);
+            currentNumber = "";
+            displayNumber.textContent = currentNumber;
+            displayEquation.textContent = currentCalculation.toString();
         }
-        // if = is cliked: bedmasCalculate(currentCalculation)
-        else if (e.target.className == "btn eql"){
-            console.log("eql");
+        // if number is clicked, add button.id to "current number"
+        else if (button.className == "btn num"){
+            currentNumber += button.id;
+            displayNumber.textContent = currentNumber;
+            displayEquation.textContent = currentCalculation.toString();
+        }
+        // if = is clicked: add currentNumber ot equation, then bedmasCalculate(currentCalculation)
+        else if (button.className == "btn eql"){
+            currentCalculation.push(currentNumber);
+            currentNumber = bedmasCalculate(currentCalculation);
+            displayNumber.textContent = currentNumber;
+            displayEquation.textContent = currentCalculation.toString();
+            currentCalculation = [];
         }
         // if AC is clicked, reset everything
-        else if (e.target.className == "btn clr"){
-            console.log("clr");
+        else if (button.className == "btn clr"){
+            currentNumber = "";
+            currentCalculation = [];
+            displayNumber.textContent = currentNumber;
+            displayEquation.textContent = currentCalculation.toString();
         }
-        // update display everytime button is clicked
     });
 });
