@@ -67,12 +67,14 @@ let displayEquation = document.querySelector(".displayequation");
 
 const buttons = document.querySelectorAll(".btn");
 
+// BUG: 3+3=33, SOLUTION: 3 "+" 3 = 6, "3" "+" "3" =33
+// BUG: display equation does not work after = is clicked
 buttons.forEach((button) => {
 
     button.addEventListener("click", function(e){
         // if operator is clicked, end current number and add it to current calculation array, then add button.id of operator to calculation array
         if (button.className == "btn opr"){
-            currentCalculation.push(currentNumber);
+            currentCalculation.push(Number(currentNumber));
             currentCalculation.push(button.id);
             currentNumber = "";
             displayNumber.textContent = currentNumber;
@@ -86,7 +88,7 @@ buttons.forEach((button) => {
         }
         // if = is clicked: add currentNumber ot equation, then bedmasCalculate(currentCalculation)
         else if (button.className == "btn eql"){
-            currentCalculation.push(currentNumber);
+            currentCalculation.push(Number(currentNumber));
             currentNumber = bedmasCalculate(currentCalculation);
             displayNumber.textContent = currentNumber;
             displayEquation.textContent = currentCalculation.toString();
