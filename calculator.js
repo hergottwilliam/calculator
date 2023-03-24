@@ -76,18 +76,18 @@ buttons.forEach((button) => {
             currentCalculation.push(button.id);
             currentNumber = "";
             displayNumber.textContent = currentNumber;
-            displayEquation.textContent = currentCalculation.toString();
+            displayEquation.textContent = currentCalculation.join(" ");
         }
         // if number is clicked, add button.id to "current number"
         else if (button.className == "btn num"){
             currentNumber += button.id;
             displayNumber.textContent = currentNumber;
-            displayEquation.textContent = currentCalculation.toString();
+            displayEquation.textContent = currentCalculation.join(" ");
         }
         // if = is clicked: add currentNumber ot equation, then bedmasCalculate(currentCalculation)
         else if (button.className == "btn eql"){
             currentCalculation.push(Number(currentNumber));
-            displayEquation.textContent = currentCalculation.toString();
+            displayEquation.textContent = currentCalculation.join(" ");
             currentNumber = bedmasCalculate(currentCalculation);
             displayNumber.textContent = currentNumber;
             
@@ -98,14 +98,7 @@ buttons.forEach((button) => {
             currentNumber = "";
             currentCalculation = [];
             displayNumber.textContent = currentNumber;
-            displayEquation.textContent = currentCalculation.toString();
+            displayEquation.textContent = currentCalculation.join(" ");
         }
     });
 });
-
-
-// TODO
-// BUG: display equation does not work after = is clicked
-// clean up display equation so that it has x and divisions symbols and no commas
-// css that bad boy up
-// after AC is clicked, display is blank, maybe create default values?

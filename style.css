@@ -11,6 +11,10 @@
     justify-content: center;
 }
 
+.displaybox{
+    height: 200px;
+}
+
 .displaynumber,
 .displayequation{
     text-align: end;
