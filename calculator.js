@@ -34,7 +34,7 @@ function operate(operator, num1, num2){
     return operatorFunction[operator](num1, num2);
 }
 
-// create a function that takes an array and uses bedmas to return the calculation
+// create a function that takes a calculation as an array and uses bedmas to return the calculation result
 function bedmasCalculate(arr){
     while (arr.length > 1){
         for (let i = 0; i < arr.length; i++){
