@@ -1,14 +1,18 @@
-*{
+body{
     font-family: sans-serif;
+    display: flex;
+    justify-content: center;
 }
 
 .calculator{
+    flex: 1;
     border: 5px solid black;
     border-radius: 15px;
-    height: 800px;
-    width: 600px;
-
-    justify-content: center;
+    
+    padding: 50px;
+    margin-top: 75px;
+    margin-left: 700px;
+    margin-right: 700px;
 }
 
 .displaybox{
@@ -24,8 +28,8 @@
 
 .buttonbox{
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    gap: 30px;
+    grid-template-columns: 110px 110px 110px 110px;
+    gap: 10px;
 }
 
 .btn{
